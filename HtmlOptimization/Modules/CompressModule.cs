@@ -8,7 +8,7 @@ using System.Web;
 
 namespace HtmlOptimization.Modules
 {
-    public class CompressionModule:IHttpModule
+    public class CompressModule:IHttpModule
     {
         public void Dispose()
         {

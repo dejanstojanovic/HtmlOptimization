@@ -1,0 +1,58 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:tns="urn:HtmlOptimization.Config"
+           targetNamespace="urn:HtmlOptimization.Config"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="HtmlOptimization">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CompressionModule">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Skip" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Extension" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="value"></xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="compressionType">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="None"/>
+                  <xs:enumeration value="Deflate"/>
+                  <xs:enumeration value="GZip"/>
+                  <xs:enumeration value="Deflate,GZip"/>
+                  <xs:enumeration value="GZip,Deflate"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MinifyModule">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Skip" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Extension" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="value" type="xs:string"></xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
