@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HtmlOptimization.Config.Elements;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -8,13 +9,8 @@ using System.Web;
 
 namespace HtmlOptimization.Modules
 {
-    public class CompressModule:IHttpModule
+    public class CompressModule : ModuleBase, IHttpModule
     {
-        public void Dispose()
-        {
-
-        }
-
         public void Init(HttpApplication context)
         {
             context.PreRequestHandlerExecute += context_PreRequestHandlerExecute;
@@ -33,8 +29,8 @@ namespace HtmlOptimization.Modules
                 app.Context.CurrentHandler != null &&
                 //!app.Context.Request.CurrentExecutionFilePath.StartsWith("/umbraco/",StringComparison.InvariantCultureIgnoreCase) &&
                 //!app.Context.Request.CurrentExecutionFilePath.StartsWith("/__browserLink/", StringComparison.InvariantCultureIgnoreCase) &&
-                !app.Context.Request.CurrentExecutionFilePathExtension.Equals(".aspx",StringComparison.InvariantCultureIgnoreCase) &&
-                !app.Context.Request.CurrentExecutionFilePathExtension.Equals(".axd",StringComparison.InvariantCultureIgnoreCase)
+                !app.Context.Request.CurrentExecutionFilePathExtension.Equals(".aspx", StringComparison.InvariantCultureIgnoreCase) &&
+                !app.Context.Request.CurrentExecutionFilePathExtension.Equals(".axd", StringComparison.InvariantCultureIgnoreCase)
                 )
             {
                 if (acceptEncoding == null || acceptEncoding.Length == 0)
@@ -59,7 +55,16 @@ namespace HtmlOptimization.Modules
             }
         }
 
-       
+        public void Dispose()
+        {
 
+        }
+
+        public override bool ProcessExtension(string extension)
+        {
+            return Config.CompressionModule.Extensions.OfType<CompressExtensionElement>().Where(e => e.Value.Equals(extension, StringComparison.InvariantCultureIgnoreCase) && e.Process).Any();
+        }
     }
+
+
 }

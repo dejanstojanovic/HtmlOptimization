@@ -69,12 +69,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\Elements\CompressExtensionCollection.cs" />
+    <Compile Include="Config\Elements\CompressExtensionElement.cs" />
     <Compile Include="Config\Elements\CompressModuleElement.cs" />
+    <Compile Include="Config\Elements\ExtensionCollection.cs" />
     <Compile Include="Config\Elements\ExtensionElement.cs" />
     <Compile Include="Config\Elements\MinifyModuleElement.cs" />
+    <Compile Include="Config\Elements\ModuleElementBase.cs" />
+    <Compile Include="Config\Enums.cs" />
     <Compile Include="Config\Sections\ConfigSection.cs" />
     <Compile Include="Config\Sections\ConfigSectionBase.cs" />
-    <Compile Include="Config\Elements\SkipElement.cs" />
     <Compile Include="Modules\CompressModule.cs" />
     <Compile Include="Modules\HtmlMinify\HtmlContentCompressor.cs" />
     <Compile Include="Modules\HtmlMinify\HtmlMinifyFilter.cs" />
@@ -83,6 +87,7 @@
     <Compile Include="Modules\HtmlMinify\Internal\HtmlMetrics.cs" />
     <Compile Include="Modules\HtmlMinify\Internal\ICompressor.cs" />
     <Compile Include="Modules\MinifyModule.cs" />
+    <Compile Include="Modules\ModuleBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

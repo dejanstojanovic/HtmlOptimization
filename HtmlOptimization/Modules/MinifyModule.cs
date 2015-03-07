@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HtmlOptimization.Config.Elements;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +7,8 @@ using System.Web;
 
 namespace HtmlOptimization.Modules
 {
-    public class MinifyModule:IHttpModule
+    public class MinifyModule :ModuleBase, IHttpModule
     {
-        public void Dispose()
-        {
-
-        }
 
         public void Init(HttpApplication context)
         {
@@ -38,6 +35,14 @@ namespace HtmlOptimization.Modules
             }
         }
 
+        public void Dispose()
+        {
 
+        }
+
+        public override bool ProcessExtension(string extension)
+        {
+            return Config.CompressionModule.Extensions.OfType<ExtensionElement>().Where(e => e.Value.Equals(extension, StringComparison.InvariantCultureIgnoreCase) && e.Process).Any();
+        }
     }
 }

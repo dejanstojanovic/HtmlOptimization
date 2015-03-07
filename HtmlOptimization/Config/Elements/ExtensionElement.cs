@@ -5,9 +5,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HtmlOptimization.Config
+namespace HtmlOptimization.Config.Elements
 {
     public class ExtensionElement : ConfigurationElement
     {
+        [ConfigurationProperty("value", IsRequired = true)]
+        public String Value
+        {
+            get
+            {
+                return (String)this["compressionType"];
+            }
+        }
+
+        [ConfigurationProperty("process", DefaultValue =false, IsRequired = true)]
+        public bool Process
+        {
+            get
+            {
+                return (bool)this["process"];
+            }
+        }
     }
 }

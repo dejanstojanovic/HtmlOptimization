@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HtmlOptimization.Config.Elements
 {
-    public class CompressModuleElement : ModuleElementBase
+    public class CompressExtensionElement:ExtensionElement
     {
         [ConfigurationProperty("compressionType", DefaultValue = CompressionType.Deflate, IsRequired = false)]
         public CompressionType CompressionType
@@ -17,16 +17,5 @@ namespace HtmlOptimization.Config.Elements
                 return (CompressionType)this["compressionType"];
             }
         }
-
-        [ConfigurationProperty("extensions", IsDefaultCollection = false)]
-        [ConfigurationCollection(typeof(CompressExtensionCollection), AddItemName = "add")]
-        public CompressExtensionCollection Extensions
-        {
-            get
-            {
-                return (CompressExtensionCollection)base["extensions"];
-            }
-        }
-
     }
 }
