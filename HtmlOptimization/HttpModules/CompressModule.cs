@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace HtmlOptimization.Modules
+namespace HtmlOptimization.HttpModules
 {
     public class CompressModule : ModuleBase, IHttpModule
     {

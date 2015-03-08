@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace HtmlOptimization.Modules.HtmlMinify
+namespace HtmlOptimization.HttpModules.HtmlMinify
 {
     public class HtmlMinifyFilter : Stream
     {
@@ -64,7 +64,7 @@ namespace HtmlOptimization.Modules.HtmlMinify
         public override void Write(byte[] buffer, int offset, int count)
         {
             string html = Encoding.UTF8.GetString(buffer, offset, count);
-            html = new HtmlOptimization.Modules.HtmlMinify.HtmlContentCompressor().Compress(html);
+            html = new HtmlOptimization.HttpModules.HtmlMinify.HtmlContentCompressor().Compress(html);
             byte[] outdata = System.Text.Encoding.UTF8.GetBytes(html);
             this.Sink.Write(outdata, 0, outdata.GetLength(0));
 

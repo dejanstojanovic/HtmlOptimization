@@ -1,4 +1,4 @@
-﻿namespace HtmlOptimization.Modules.HtmlMinify.Internal
+﻿namespace HtmlOptimization.HttpModules.HtmlMinify.Internal
 {
 	public interface ICompressor
 	{

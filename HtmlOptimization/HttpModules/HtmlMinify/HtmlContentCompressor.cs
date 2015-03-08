@@ -1,8 +1,8 @@
-﻿namespace HtmlOptimization.Modules.HtmlMinify
+﻿namespace HtmlOptimization.HttpModules.HtmlMinify
 {
 	using System.Collections.Generic;
 	using System.Text.RegularExpressions;
-    using HtmlOptimization.Modules.HtmlMinify.Internal;
+    using HtmlOptimization.HttpModules.HtmlMinify.Internal;
 
 	/// <summary>
 	/// This is the only public class you should use. Although there are other classes

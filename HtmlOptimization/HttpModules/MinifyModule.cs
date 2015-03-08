@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace HtmlOptimization.Modules
+namespace HtmlOptimization.HttpModules
 {
     public class MinifyModule :ModuleBase, IHttpModule
     {
@@ -29,7 +29,7 @@ namespace HtmlOptimization.Modules
                 context.CurrentHandler != null &&
                 string.IsNullOrWhiteSpace(app.Context.Request.CurrentExecutionFilePathExtension) ? true : ProcessExtension(app.Context.Request.CurrentExecutionFilePathExtension))
             {
-                context.Response.Filter = new HtmlOptimization.Modules.HtmlMinify.HtmlMinifyFilter(context);
+                context.Response.Filter = new HtmlOptimization.HttpModules.HtmlMinify.HtmlMinifyFilter(context);
 
             }
         }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HtmlOptimization.Modules
+namespace HtmlOptimization.HttpModules
 {
     public abstract class ModuleBase
     {
