@@ -11,13 +11,22 @@ namespace HtmlOptimization.Modules
 {
     public abstract class ModuleBase
     {
-        Config.Sections.ConfigSection config = ConfigurationManager.GetSection("htmlOptimization") as ConfigSection;
+        protected static string[] skipAlways = new string[] { ".css", ".js" };
+        protected static Config.Sections.ConfigSection config = ConfigurationManager.GetSection("htmlOptimization") as ConfigSection;
+
+        public static string[] SkipAlways
+        {
+            get
+            {
+                return skipAlways;
+            }
+        }
 
         public static Config.Sections.ConfigSection Config
         {
             get
             {
-                return Config;
+                return config;
             }
         }
 

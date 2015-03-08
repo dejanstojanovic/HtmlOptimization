@@ -6,7 +6,7 @@
   <xs:element name="htmlOptimization">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="compressionModule">
+        <xs:element name="compressModule">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="extensions" maxOccurs="1">

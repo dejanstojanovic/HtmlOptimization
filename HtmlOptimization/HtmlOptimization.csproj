@@ -79,6 +79,7 @@
     <Compile Include="Config\Enums.cs" />
     <Compile Include="Config\Sections\ConfigSection.cs" />
     <Compile Include="Config\Sections\ConfigSectionBase.cs" />
+    <Compile Include="HtmlHelpers\ScriptBundle.cs" />
     <Compile Include="Modules\CompressModule.cs" />
     <Compile Include="Modules\HtmlMinify\HtmlContentCompressor.cs" />
     <Compile Include="Modules\HtmlMinify\HtmlMinifyFilter.cs" />

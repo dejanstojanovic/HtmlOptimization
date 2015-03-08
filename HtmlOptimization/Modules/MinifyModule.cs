@@ -27,8 +27,7 @@ namespace HtmlOptimization.Modules
                 contentType.Equals("text/html") &&
                 context.Response.StatusCode == 200 &&
                 context.CurrentHandler != null &&
-                !app.Context.Request.CurrentExecutionFilePathExtension.Equals(".aspx", StringComparison.InvariantCultureIgnoreCase) &&
-                !app.Context.Request.CurrentExecutionFilePathExtension.Equals(".axd", StringComparison.InvariantCultureIgnoreCase))
+                string.IsNullOrWhiteSpace(app.Context.Request.CurrentExecutionFilePathExtension) ? true : ProcessExtension(app.Context.Request.CurrentExecutionFilePathExtension))
             {
                 context.Response.Filter = new HtmlOptimization.Modules.HtmlMinify.HtmlMinifyFilter(context);
 
@@ -42,7 +41,16 @@ namespace HtmlOptimization.Modules
 
         public override bool ProcessExtension(string extension)
         {
-            return Config.CompressionModule.Extensions.OfType<ExtensionElement>().Where(e => e.Value.Equals(extension, StringComparison.InvariantCultureIgnoreCase) && e.Process).Any();
+            if (string.IsNullOrWhiteSpace(extension))
+            {
+                return true;
+            }
+            else if (!SkipAlways.Contains(extension, StringComparer.InvariantCultureIgnoreCase))
+            {
+                return Config.MinifyModule.Extensions.OfType<ExtensionElement>().Where(e => e.Value.Equals(extension, StringComparison.InvariantCultureIgnoreCase) && e.Process).Any();
+            }
+            return false;
+            
         }
     }
 }

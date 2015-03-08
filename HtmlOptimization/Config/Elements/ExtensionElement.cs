@@ -14,7 +14,7 @@ namespace HtmlOptimization.Config.Elements
         {
             get
             {
-                return (String)this["compressionType"];
+                return (String)this["value"];
             }
         }
 

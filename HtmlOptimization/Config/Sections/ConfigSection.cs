@@ -8,23 +8,23 @@ using HtmlOptimization.Config.Elements;
 
 namespace HtmlOptimization.Config.Sections
 {
-    public class ConfigSection : ConfigurationSection
+    public class ConfigSection : ConfigSectionBase
     {
-        [ConfigurationProperty("CompressionModule", IsRequired = false)]
-        public CompressModuleElement CompressionModule
+        [ConfigurationProperty("compressModule", IsRequired = false)]
+        public CompressModuleElement CompressModule
         {
             get
             {
-                return (CompressModuleElement)base["CompressionModule"];
+                return (CompressModuleElement)base["compressModule"];
             }
         }
 
-        [ConfigurationProperty("MinifyModule", IsRequired = false)]
-        public MinifyModuleElement Cache
+        [ConfigurationProperty("minifyModule", IsRequired = false)]
+        public MinifyModuleElement MinifyModule
         {
             get
             {
-                return (MinifyModuleElement)base["MinifyModule"];
+                return (MinifyModuleElement)base["minifyModule"];
             }
         }
     }
