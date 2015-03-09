@@ -46,7 +46,7 @@ The library provides two html helpers (for now) for minifying and rendering styl
 ```cs
 @using HtmlOptimization.HtmlHelpers
 
-    @Bundles.Styles("wesbite_style",true,Bundles.MediaType.screen,
+    @Bundles.Styles("wesbite_style",true,Bundles.MediaType.Screen,
             "~/Content/bootstrap.css",
             "~/Content/site.css")
     @Bundles.Scripts("bootstrap", true, Bundles.ScriptLoading.Defer,
