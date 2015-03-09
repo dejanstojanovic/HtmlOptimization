@@ -27,15 +27,33 @@ For custom settings for the modules, the following section needs to be added to 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
+
   <configSections>
     <section name="htmlOptimization" type="HtmlOptimization.Config.Sections.ConfigSection, HtmlOptimization" allowDefinition="Everywhere" allowLocation="true" />
   </configSections>
+  
+  <htmlOptimization xmlns="urn:HtmlOptimization.Config">
+    <compressModule compressionType="GZip">
+      <extensions>
+        <add value=".axd" process="false" />
+        <add value=".aspx" process="false" />
+      </extensions>
+    </compressModule>
+    <minifyModule>
+      <extensions>
+        <add value=".axd" process="false" />
+        <add value=".aspx" process="false" />
+      </extensions>
+    </minifyModule>
+  </htmlOptimization>
+  
   <system.webServer>
     <modules>
       <add name="MinifyModule" type="HtmlOptimization.HttpModules.MinifyModule, HtmlOptimization" />
       <add name="CompressModule" type="HtmlOptimization.HttpModules.CompressModule, HtmlOptimization" />
     </modules>
   </system.webServer>
+  
 </configuration>
 ```
 
