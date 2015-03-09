@@ -125,7 +125,7 @@ namespace HtmlOptimization.HtmlHelpers
             /// Used for computer screens
             /// </summary>
             [Description("Used for computer screens")]
-            screen = 7,
+            Screen = 7,
             /// <summary>
             /// Used for media using a fixed-pitch character grid, like teletypes and terminals
             /// </summary>
