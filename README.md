@@ -7,3 +7,5 @@ Compressiong i supported on IIS out of the box but on shared host this is ususal
 After some time I added configuration and some additional helpers to make my life easier when adding minified stylesheet and JavaScript with some additional options which are not mplemented in so far in ASP.NET MVC.
 
 ##How to use?
+###Http modules for html minify and html compression
+After adding the reference to a HtmlOPtimizaion library, you need to add these two modules in web.config
