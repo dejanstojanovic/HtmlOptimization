@@ -42,4 +42,13 @@ For custom settings for the modules, the following section needs to be added to 
 The library provides two html helpers (for now) for minifying and rendering stylesheet and javascript tags. To use them the only thing you need to do is to invoke then in your Razor view code
 ```cs
 @using HtmlOptimization.HtmlHelpers
+
+    @Bundles.Styles("wesbite_style",true,Bundles.MediaType.screen,
+            "~/Content/bootstrap.css",
+            "~/Content/site.css")
+    @Bundles.Scripts("bootstrap", true, Bundles.ScriptLoading.Defer,
+            "~/Scripts/bootstrap.js",
+            "~/Scripts/respond.js")
+
 ```
+It will allow you to add some additional attributes both to styles and javascripts tags which are currently not supported by ASP.NET MVC
