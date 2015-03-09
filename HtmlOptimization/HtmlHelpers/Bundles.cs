@@ -33,6 +33,14 @@ namespace HtmlOptimization.HtmlHelpers
             Async
         }
 
+        /// <summary>
+        /// Generates style tag with bundeled javascript sources
+        /// </summary>
+        /// <param name="bundleName">Name of budle to register in bundles</param>
+        /// <param name="optimized">Minify file content when bundling</param>
+        /// <param name="loading">Type of loading and executing of JavaScript</param>
+        /// <param name="paths">Relative paths to JavaScript files to be included in bundle</param>
+        /// <returns>Html script tag pointing to generated JavaScript bundle</returns>
         public static IHtmlString Scripts(string bundleName, bool optimized, ScriptLoading loading = ScriptLoading.None, params string[] paths)
         {
             var newBundleName = string.Format("{0}/{1}", "~/bundles", bundleName);
@@ -138,6 +146,14 @@ namespace HtmlOptimization.HtmlHelpers
             Tv = 9
         }
 
+        /// <summary>
+        /// Generates style tag with bundeled stylesheet sources
+        /// </summary>
+        /// <param name="bundleName">Name of bundle to register in bundles</param>
+        /// <param name="optimized">Minify files when bundling</param>
+        /// <param name="media">Media attribute value</param>
+        /// <param name="paths">Relative paths to script resource (.css) files</param>
+        /// <returns>Html link tag pointing to generated css bundle</returns>
         public static IHtmlString Styles(string bundleName, bool optimized, MediaType media = MediaType.All, params string[] paths)
         {
             var newBundleName = string.Format("{0}/{1}", "~/bundles", bundleName);
