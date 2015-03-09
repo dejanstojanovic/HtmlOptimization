@@ -8,7 +8,7 @@ After some time I added configuration and some additional helpers to make my lif
 
 ##How to use?
 ###Http modules for html minify and html compression
-After adding the reference to a HtmlOPtimizaion library, you need to add these two modules in web.config
+After adding the reference to a HtmlOPtimizaion library, you need to add these two modules in ```web.config```
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
@@ -38,6 +38,9 @@ For custom settings for the modules, the following section needs to be added to 
   </system.webServer>
 </configuration>
 ```
+
+To make it more easy to edit the onfiguration, add ```HtmlOptimization.xsd``` file to your project to enable intelisense in ```web.config```.
+
 ###Html helpers
 The library provides two html helpers (for now) for minifying and rendering stylesheet and javascript tags. To use them the only thing you need to do is to invoke then in your Razor view code
 ```cs
