@@ -39,5 +39,7 @@ For custom settings for the modules, the following section needs to be added to 
 </configuration>
 ```
 ###Html helpers
-The library provides two html helpers (for now) for minifying and rendering stylesheet and javascript tags. To use them the only thing you need to do is to add 
+The library provides two html helpers (for now) for minifying and rendering stylesheet and javascript tags. To use them the only thing you need to do is to invoke then in your Razor view code
+```cs
 @using HtmlOptimization.HtmlHelpers
+```
