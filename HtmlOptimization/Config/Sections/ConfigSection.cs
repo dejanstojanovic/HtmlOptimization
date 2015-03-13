@@ -15,7 +15,7 @@ namespace HtmlOptimization.Config.Sections
         {
             get
             {
-                return (CompressModuleElement)base["compressModule"];
+                return base["compressModule"] as CompressModuleElement;
             }
         }
 
@@ -24,7 +24,16 @@ namespace HtmlOptimization.Config.Sections
         {
             get
             {
-                return (MinifyModuleElement)base["minifyModule"];
+                return base["minifyModule"] as MinifyModuleElement;
+            }
+        }
+
+        [ConfigurationProperty("htmlImageThumbnail", IsRequired = false)]
+        public HtmlImageThumbnailElement HtmlImageThumbnail
+        {
+            get
+            {
+                return base["htmlImageThumbnail"] as HtmlImageThumbnailElement;
             }
         }
     }

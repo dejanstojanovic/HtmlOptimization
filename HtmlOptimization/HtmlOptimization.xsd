@@ -6,6 +6,12 @@
   <xs:element name="htmlOptimization">
     <xs:complexType>
       <xs:sequence>
+        <xs:element name="htmlImageThumbnail">
+          <xs:complexType>
+            <xs:attribute name="cacheFolder" type="xs:string"></xs:attribute>
+            <xs:attribute name="createCacheFolder" type="xs:boolean"></xs:attribute>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="compressModule">
           <xs:complexType>
             <xs:sequence>

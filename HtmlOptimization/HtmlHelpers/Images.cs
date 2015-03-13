@@ -9,12 +9,24 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Xml.Linq;
 using HtmlOptimization.ExtensionMethods;
+using System.Configuration;
+using HtmlOptimization.Config.Sections;
 
 namespace HtmlOptimization.HtmlHelpers
 {
     public static class Images
     {
         public static MD5 md5 = MD5.Create();
+
+        static Config.Sections.ConfigSection config = ConfigurationManager.GetSection("htmlOptimization") as ConfigSection;
+
+        public static Config.Sections.ConfigSection Config
+        {
+            get
+            {
+                return config;
+            }
+        }
 
         public static IHtmlString HtmlImageThumbnail(string imagePath, int width, int height, string alt = null, string @class = null)
         {
@@ -23,11 +35,17 @@ namespace HtmlOptimization.HtmlHelpers
 
         public static IHtmlString HtmlImageThumbnail(string imagePath, Size size, string alt = null, string @class = null)
         {
-            var cacheFolder = "/ImageCache/";
+            var cacheFolder = !string.IsNullOrWhiteSpace( Config.HtmlImageThumbnail.CacheFolder) ? Config.HtmlImageThumbnail.CacheFolder : "/ThumbnailCache";
             var context = HttpContext.Current;
             var path = context.Server.MapPath(imagePath);
             var hashName = string.Concat(GetMd5Hash(string.Concat(path.Trim().ToLower(), "-", size.Width, "x", size.Height)), Path.GetExtension(imagePath).ToLower());
             var cachedImagePath = context.Server.MapPath(Path.Combine(cacheFolder, hashName));
+
+            if (!Directory.Exists(context.Server.MapPath(cacheFolder)) && Config.HtmlImageThumbnail.CreateCacheFolder)
+            {
+                Directory.CreateDirectory(context.Server.MapPath(cacheFolder));
+            }
+
             if (!File.Exists(cachedImagePath) && File.Exists(path))
             {
                 using (Bitmap bmp = new Bitmap(path))
